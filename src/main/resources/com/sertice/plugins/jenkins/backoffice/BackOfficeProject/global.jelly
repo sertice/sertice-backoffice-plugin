@@ -1,0 +1,58 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <f:section title="会社情報">
+    <f:block>
+      <p> </p>
+      <p> 帳票出力時に必要な以下の情報を入力してください。</p>
+      <p> </p>
+    </f:block>
+    <f:entry title="会社名" field="myCompanyName" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="郵便番号" field="myPrefectureCode" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="住所" field="myAddress1" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="住所（ビル・マンション名）" field="myAddress2" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="電話番号" field="myTel" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="FAX番号" field="myFax" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="ホームページURL" field="myHomepageUrl" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="メールアドレス" field="myMailAddress" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="代表者名" field="myPresidentName" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="会社ロゴ" field="myLogoPath" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="角印" field="myStampPath" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="銀行名" field="myBankName" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="支店名" field="myBranchName" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="口座種類" field="myAccountType" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="口座番号" field="myAccountNo" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="口座名義人" field="myAccountName" description="">
+      <f:textbox />
+    </f:entry>
+  </f:section>
+</j:jelly>

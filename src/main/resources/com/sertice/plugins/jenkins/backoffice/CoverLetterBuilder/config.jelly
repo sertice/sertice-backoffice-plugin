@@ -1,0 +1,64 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <f:block>
+    <p> </p>
+    <p> 穴空き封筒に対応した送付状の出力を行うビルドです。出力イメージは<a href="/plugin/sertice-backoffice/coverletter-sample.pdf" target="_blank">こちら</a>。</p>
+    <p> </p>
+  </f:block>
+  <f:entry title="送付先郵便番号" field="prefectureCode" description="">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="送付先住所" field="address1" description="">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="送付先住所（ビル・マンション名）" field="address2" description="">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="送付先会社名" field="companyName" description="">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="送付先部署名/送付先個人名" field="to" description="">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="差出部署名/差出個人名" field="from" description="">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="送付明細">
+       <table width="100%">
+         <thead>
+           <tr>
+             <td width="60%" align="center">名称</td>
+             <td width="10px"></td>
+             <td width="10%" align="center">部数</td>
+             <td width="10px"></td>
+             <td width="200px"></td>
+           </tr>
+         </thead>
+       </table>
+       <f:repeatable var="details" varStatus="instStatus" items="${descriptor.getDetails(instance)}">
+         <table width="100%">
+           <tbody>
+             <tr>
+               <td width="60%"><f:textbox field="title" value="${details.title}" /></td>
+               <td width="10px"></td>
+               <td width="10%"><f:textbox field="count" value="${details.count}" default="1" /></td>
+               <td width="10px"></td>
+               <td width="200px">
+                 <j:if test="${!loopStatus.first}">
+                   <f:repeatableDeleteButton/>
+                 </j:if>
+               </td>
+             </tr>
+           </tbody>
+         </table>
+       </f:repeatable>
+  </f:entry>
+  <f:advanced>
+    <f:entry title="ファイル名" field="fileName" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="作成日" field="date" description="">
+      <f:textbox />
+    </f:entry>
+  </f:advanced>
+</j:jelly>

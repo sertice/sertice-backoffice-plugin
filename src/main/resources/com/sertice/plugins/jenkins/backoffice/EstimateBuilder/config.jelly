@@ -1,0 +1,71 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <f:block>
+    <p> </p>
+    <p> 見積書の出力を行うビルドです。出力イメージは<a href="/plugin/sertice-backoffice/estimate-sample.pdf" target="_blank">こちら</a>。</p>
+    <p> </p>
+  </f:block>
+  <f:entry title="文書番号" field="documentNo" description="">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="会社名" field="companyName" description="">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="部署名／個人名" field="to" description="">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="件名" field="title" description="">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="文書作成部署／作成者" field="from" description="">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="見積明細">
+       <table width="100%">
+         <thead>
+           <tr>
+             <td width="10%" align="center">項番</td>
+             <td width="10px"></td>
+             <td width="50%" align="center">名目</td>
+             <td width="10px"></td>
+             <td width="10%" align="center">金額</td>
+             <td width="10px"></td>
+             <td width="200px"></td>
+           </tr>
+         </thead>
+       </table>
+       <f:repeatable var="details" varStatus="instStatus" items="${descriptor.getDetails(instance)}">
+         <table width="100%">
+           <tbody>
+             <tr>
+               <td width="10%"><f:textbox field="no" value="${details.no}" /></td>
+               <td width="10px"></td>
+               <td width="50%"><f:textbox field="specifications" value="${details.specifications}" /></td>
+               <td width="10px"></td>
+               <td width="10%"><f:textbox field="amount" value="${details.amount}" default="0" /></td>
+               <td width="10px"></td>
+               <td width="200px">
+                 <j:if test="${!loopStatus.first}">
+                   <f:repeatableDeleteButton/>
+                 </j:if>
+               </td>
+             </tr>
+           </tbody>
+         </table>
+       </f:repeatable>
+  </f:entry>
+  <f:advanced>
+    <f:entry title="ファイル名" field="fileName" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="作成日" field="date" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="清算／値引" field="discount" description="">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="備考" field="comment" description="">
+      <f:expandableTextbox />
+    </f:entry>
+  </f:advanced>
+</j:jelly>

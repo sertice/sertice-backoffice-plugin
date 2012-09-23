@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CoverLetter" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="de4ffad6-afcf-408b-b40c-6fffb895db21">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="265"/>
+	<parameter name="COMPANY" class="com.sertice.backoffice.entity.MyCompany"/>
+	<parameter name="HEADER" class="com.sertice.backoffice.entity.CoverLetterHeader"/>
+	<field name="title" class="java.lang.String"/>
+	<field name="count" class="java.lang.Integer"/>
+	<title>
+		<band height="450">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="d63911c4-6750-4cea-810a-321b1958f594" x="50" y="20" width="100" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{HEADER}.getPrefectureCode()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="b2b82092-10f2-4aba-ba5b-21472cb016b7" x="50" y="35" width="200" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{HEADER}.getAddress1()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="15246506-b631-4375-881d-24844137edb8" x="50" y="50" width="200" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{HEADER}.getAddress2()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="97ec5349-2b02-49df-b8bb-3cdffcc42ced" x="50" y="65" width="200" height="15">
+					<printWhenExpression><![CDATA[$P{HEADER}.getCompanyName().length()==0?false:true]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{HEADER}.getCompanyName() + " 御中"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="ea84d4f4-99c6-4bcf-8f8a-814a9968be4b" x="50" y="80" width="220" height="15">
+					<printWhenExpression><![CDATA[$P{HEADER}.getTo().length()==0?false:true]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{HEADER}.getTo() + " 様"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="2480cd06-b5a3-45b6-bb5f-a12a88a192de" x="455" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{HEADER}.getDate()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="89a9138c-c9e2-445f-a4c1-a177a28267c5" x="360" y="105" width="150" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="15" isBold="true" pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPANY}.getCompanyName()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="1032bb3c-7a55-4797-ad62-7ab1d4437ead" x="360" y="125" width="100" height="15">
+					<printWhenExpression><![CDATA[$P{COMPANY}.getPrefectureCode().length()==0?false:true]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["〒" + $P{COMPANY}.getPrefectureCode()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="ad9385af-63f4-4d7a-98c3-40b2f4c40185" x="360" y="140" width="150" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPANY}.getAddress1()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="c26aa7c5-89f4-4b73-bafe-afd1ba51b523" x="360" y="155" width="150" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPANY}.getAddress2()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="0f5f98c0-4457-407d-ba0b-0f61be507339" x="360" y="170" width="150" height="15">
+					<printWhenExpression><![CDATA[$P{COMPANY}.getTel().length()==0?false:true]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["TEL " + $P{COMPANY}.getTel()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="06c893fd-acd2-46f0-af51-e22990723bef" x="360" y="185" width="150" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{HEADER}.getFrom()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="b52f3212-293a-4514-b816-1b114daf20d5" x="377" y="35" width="100" height="67"/>
+				<imageExpression><![CDATA[$P{COMPANY}.getLogoPath()]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="d04a2f29-097e-458a-a924-f93052b0edb1" x="52" y="263" width="450" height="100"/>
+				<textElement>
+					<font size="12" pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[拝啓　
+貴社におかれましては、ますますご清栄のことと心よりお慶び申し上げます。
+平素は格別のご高配を賜り、厚く御礼申し上げます。
+早速ではございますが下記の書類をお送りします。ご査収の上よろしくご手配を賜りますようお願い申し上げます。
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f01d14d6-6074-4ff0-9310-a08bb0f00dae" x="52" y="363" width="450" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12" pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[敬具]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="47eb2b6c-9aa7-4255-b0ce-f72dfe66697d" x="27" y="220" width="500" height="30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[書類送付のご案内]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1e177da8-eabf-4faf-baf1-7e65da960aa7" x="227" y="395" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[記]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="cf66109c-dd73-4c0c-8d46-f3675ba609bb" x="0" y="284" width="1" height="1"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="3678649e-daef-4aa3-8e9d-734a824604db" x="553" y="284" width="1" height="1"/>
+			</rectangle>
+		</band>
+	</title>
+	<detail>
+		<band height="30">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="d9e71f6d-cea8-440b-870d-424011695e6d" x="52" y="0" width="300" height="20"/>
+				<textElement>
+					<font size="12" pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="7eb56e9f-a710-4326-adeb-be5cc7fcc077" x="352" y="0" width="100" height="20">
+					<printWhenExpression><![CDATA[$F{count} == null ?false:true]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="12" pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{count} + "部"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="50">
+			<staticText>
+				<reportElement uuid="f01d14d6-6074-4ff0-9310-a08bb0f00dae" x="52" y="20" width="450" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12" pdfFontName="HeiseiKakuGo-W5" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[- 以上 -]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
